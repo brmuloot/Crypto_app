@@ -16,9 +16,9 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
-stages:          # List of stages for jobs, and their order of execution
+stages:
+  - lint          # List of stages for jobs, and their order of execution
   - test
-  - lint
 
 
 flake8:
@@ -27,7 +27,7 @@ flake8:
   before_script:
     - pip install flake8
   script:
-    - flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+    - flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics > flake8-report.txt
     - ls -al
   artifacts:
     paths:
