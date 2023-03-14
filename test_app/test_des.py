@@ -1,13 +1,13 @@
 from crypto_app.des_algo import DES
 
-def test_caesercipher():
+def test_des():
     des = DES()
     
-    key = "my_secret"
+    key = "mysecret"
     message = "This is a secret message"
-    crypt = "4c2b2e4c1fae6deae8c93d5106d13e6b"
+    crypt = "fcedd1515146aab639575b874c72dc006b2142c540562601f5f26349eefb43d9"
 
     crypted = des.encrypt(message, key)
-    # assert crypted == "4c2b2e4c1fae6deae8c93d5106d13e6b"
+    assert crypted == "fcedd1515146aab639575b874c72dc006b2142c540562601f5f26349eefb43d9"
     decrypted = des.decrypt(crypt, key)   
-    # assert decrypted == "Bonsoir"
+    assert decrypted == "This is a secret message"
