@@ -27,7 +27,7 @@ flake8:
   before_script:
     - pip install flake8
   script:
-    - flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics > flake8-report.txt
+    - flake8 . --max-line-length=88 --show-source --statistics > flake8-report.txt
     - ls -al
   artifacts:
     paths:
