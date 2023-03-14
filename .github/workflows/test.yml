@@ -23,7 +23,7 @@ jobs:
       - name: Set Up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
-          python-versions: ${{ matrix.python-version }}
+          python-version: ${{ matrix.python-version }}
 
       #Display the Python version being used
       - name: Display Python version

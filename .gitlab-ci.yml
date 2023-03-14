@@ -25,4 +25,4 @@ unit-test-job:   # This job runs in the test stage.
   before_script:
       - pip install -r requirements.txt
   script:
-    - pytest test_app
+    - python -m pytest test_app
