@@ -27,17 +27,15 @@ flake8:
   before_script:
     - pip install flake8
   script:
-    - flake8 . --max-line-length=79 --show-source --statistics > flake8-report.txt
-    - ls -al
+    - flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics > flake8-report.txt # compte le nombre d'erreur de syntaxe dans le fichier et le stock dans le fichier flake8-report 
   artifacts:
     paths:
-      - flake8-report.txt
+      - flake8-report.txt # stock le rapport dans les artifacts
 
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
   image: python:3.9
   before_script:
-      - pip install pytest
       - pip install -r requirements.txt
   script:
     - python -m pytest test_app 
