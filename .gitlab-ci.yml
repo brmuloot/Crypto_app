@@ -21,7 +21,7 @@ stages:
   - test
 
 
-flake8:
+check-error-syntax:
   stage: lint
   image: python:3.9
   before_script:
